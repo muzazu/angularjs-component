@@ -33,9 +33,10 @@ prompt(QUESTIONS)
     .then((answers) => {
       const component = answers['component-name'];
       const moduleName = answers['module-name'];
+      const dashedComponent = camelCaseToDash(component);
       const templatePath = fixPath(`${__dirname}/template`);
       // eslint-disable-next-line max-len
-      const targetPath = fixPath(join(CURR_DIR, `./app/src/${moduleName}/components/${component}`));
+      const targetPath = fixPath(join(CURR_DIR, `./app/src/${moduleName}/components/${dashedComponent}`));
 
       try {
         mkdirSync(targetPath);
@@ -62,7 +63,8 @@ function createDirectoryContents(
 
   filesToCreate.forEach((file) => {
     const origFilePath = `${templatePath}/${file}`;
-    const replaceFileName = file.replace(/template/, component);
+    const dashedComponent = camelCaseToDash(component);
+    const replaceFileName = file.replace(/template/, dashedComponent);
     const targetPath = `${newProjectPath}/${replaceFileName}`;
 
     // get stats about the current file
@@ -73,8 +75,9 @@ function createDirectoryContents(
           if (err) {
             return console.log(err);
           }
-          let result = data.replace(/template/g, component);
-          result = result.replace(/moduleName/g, moduleName);
+          const result = data.replace(/templateDashed/g, dashedComponent)
+              .replace(/template/g, component)
+              .replace(/moduleName/g, moduleName);
 
           writeFile(targetPath, result, 'utf8', function(err) {
             if (err) return console.log(err);
@@ -95,4 +98,13 @@ function createDirectoryContents(
 function fixPath(originalPath) {
   const normalizePath = normalize(originalPath);
   return normalizePath.replace(/\\/g, '/');
+}
+
+/**
+ * fallback path for windows.
+ * @param {string} url filename or module name.
+ * @return {string} dashed string.
+ */
+function camelCaseToDash(url) {
+  return url.replace(/([A-Z])/g, (g) => `-${g[0].toLowerCase()}`);
 }
