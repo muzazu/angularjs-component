@@ -1,8 +1,10 @@
-import {prompt} from 'inquirer';
-import {readdirSync, mkdirSync, statSync, readFile, writeFile} from 'fs';
-import {join, normalize} from 'path';
+#!/usr/bin/env node
+const {prompt} = require('inquirer');
+const {readdirSync, mkdirSync, statSync, readFile, writeFile} = require('fs');
+const {join, normalize} = require('path');
 
-const modulesPath = fixPath(join(__dirname, '../app/src/'));
+const CURR_DIR = process.cwd();
+const modulesPath = fixPath(join(CURR_DIR, './app/src/'));
 const modules = readdirSync(modulesPath);
 
 const QUESTIONS = [
@@ -33,7 +35,7 @@ prompt(QUESTIONS)
       const moduleName = answers['module-name'];
       const templatePath = fixPath(`${__dirname}/template`);
       // eslint-disable-next-line max-len
-      const targetPath = fixPath(join(__dirname, `../app/src/${moduleName}/components/${component}`));
+      const targetPath = fixPath(join(CURR_DIR, `./app/src/${moduleName}/components/${component}`));
 
       try {
         mkdirSync(targetPath);

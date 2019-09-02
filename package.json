@@ -26,5 +26,10 @@
   "devDependencies": {
     "eslint": "^6.3.0",
     "eslint-config-google": "^0.13.0"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "inquirer": "^7.0.0",
+    "path": "^0.12.7"
   }
 }
