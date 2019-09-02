@@ -1,5 +1,5 @@
 {
-  "name": "angularjs-generator",
+  "name": "angularjs-component",
   "version": "1.0.0",
   "description": "simple angularjs component generator",
   "main": "index.js",
