@@ -74,7 +74,7 @@ function createDirectoryContents(
             return console.log(err);
           }
           let result = data.replace(/template/g, component);
-          result = data.replace(/moduleName/g, moduleName);
+          result = result.replace(/moduleName/g, moduleName);
 
           writeFile(targetPath, result, 'utf8', function(err) {
             if (err) return console.log(err);
