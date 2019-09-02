@@ -40,7 +40,9 @@ prompt(QUESTIONS)
       try {
         mkdirSync(targetPath);
 
-        createDirectoryContents(templatePath, targetPath, component);
+        createDirectoryContents(
+            templatePath, targetPath, component, moduleName
+        );
       } catch (error) {
         console.log(error);
       }
@@ -51,8 +53,11 @@ prompt(QUESTIONS)
  * @param {string} templatePath template path.
  * @param {string} newProjectPath target project path.
  * @param {string} component name of component.
+ * @param {string} moduleName name of module.
  */
-function createDirectoryContents(templatePath, newProjectPath, component) {
+function createDirectoryContents(
+    templatePath, newProjectPath, component, moduleName
+) {
   const filesToCreate = readdirSync(templatePath);
 
   filesToCreate.forEach((file) => {
@@ -68,7 +73,8 @@ function createDirectoryContents(templatePath, newProjectPath, component) {
           if (err) {
             return console.log(err);
           }
-          const result = data.replace(/template/g, component);
+          let result = data.replace(/template/g, component);
+          result = data.replace(/moduleName/g, moduleName);
 
           writeFile(targetPath, result, 'utf8', function(err) {
             if (err) return console.log(err);
