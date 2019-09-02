@@ -1,0 +1,30 @@
+{
+  "name": "angularjs-generator",
+  "version": "1.0.0",
+  "description": "simple angularjs component generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muzazu/angularjs-generator.git"
+  },
+  "keywords": [
+    "angularjs",
+    "cli"
+  ],
+  "author": "muzazu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muzazu/angularjs-generator/issues"
+  },
+  "homepage": "https://github.com/muzazu/angularjs-generator#readme",
+  "bin": {
+    "angularjs-component": "./index.js"
+  },
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-config-google": "^0.13.0"
+  }
+}
