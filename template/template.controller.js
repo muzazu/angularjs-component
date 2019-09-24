@@ -1,4 +1,4 @@
-class templateController {
+class tmlController {
     constructor () {
         'ngInject'
         Object.assign(this, {})
@@ -9,4 +9,4 @@ class templateController {
     }
 }
 
-export {templateController}
+export {tmlController}

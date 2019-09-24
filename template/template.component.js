@@ -1,6 +1,6 @@
-import { templateController } from "./templateDashed.controller";
+import { tmlController } from "./tmlDashed.controller";
 
-export const template = {
-    templateUrl: '/src/moduleName/components/templateDashed/templateDashed.html',
-    controller: templateController
+export const tml = {
+    templateUrl: '/src/moduleName/components/tmlDashed/tmlDashed.html',
+    controller: tmlController
 }

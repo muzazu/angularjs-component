@@ -75,8 +75,8 @@ function createDirectoryContents(
           if (err) {
             return console.log(err);
           }
-          const result = data.replace(/templateDashed/g, dashedComponent)
-              .replace(/template/g, component)
+          const result = data.replace(/tmlDashed/g, dashedComponent)
+              .replace(/tml/g, component)
               .replace(/moduleName/g, moduleName);
 
           writeFile(targetPath, result, 'utf8', function(err) {
