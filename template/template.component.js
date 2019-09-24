@@ -1,6 +1,6 @@
-import { tmlController } from "./tmlDashed.controller";
+import { REPTMPController } from "./REPTMPDashed.controller";
 
-export const tml = {
-    templateUrl: '/src/moduleName/components/tmlDashed/tmlDashed.html',
-    controller: tmlController
+export const REPTMP = {
+    templateUrl: '/src/moduleName/components/REPTMPDashed/REPTMPDashed.html',
+    controller: REPTMPController
 }
