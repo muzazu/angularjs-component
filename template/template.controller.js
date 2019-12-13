@@ -1,12 +1,12 @@
 class REPTMPController {
-    constructor () {
-        'ngInject'
-        Object.assign(this, {})
-    }
+  constructor() {
+    "ngInject";
+    Object.assign(this, {});
+  }
 
-    $onInit = () => {
-        
-    }
+  $onInit() {
+      
+  }
 }
 
-export {REPTMPController}
+export default REPTMPController;
